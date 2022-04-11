@@ -1,20 +1,20 @@
 const loadText = document.querySelector('.loading-text')
 const bg = document.querySelector('.bg')
-const playSound = document.getElementById('higher')
+const Reload_Again = document.querySelector(".text-after");
 
-window.onload = function () {
-  playSound.play()
-}
 
 let load = 0
 
-let int = setInterval(blurring, 50)
+let int = setInterval(blurring, 70)
 
 function blurring() {
   load++
 
   if (load > 99) {
     clearInterval(int)
+    setTimeout(() => {
+       Reload_Again.innerText = "Reload Again";
+    }, 1500);
   }
   loadText.innerText = `${load}%`
   loadText.style.opacity = scale(load, 0,100,3,0)
